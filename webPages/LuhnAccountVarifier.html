@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <!-- include source files here... -->
+  <script type="text/javascript" src="../src/LuhnValidator.js"></script>
+  <script type="text/javascript">
+    function validateInput(){
+      var luhnValidator =window.luhnValidator;
+      var accountNum = document.getElementById("accountNumField").value;
+      var outputDiv = document.getElementById("isCorrect")
+      if (luhnValidator.isValidAccountNumber(accountNum)){
+         outputDiv.body = "Valid Account Number";
+      }
+      else{
+         outputDiv.body = "inValid Account Number";
+      }
+      
+    }
+    
+  </script>
+  
+  
+</head>
+
+<body>
+<form>
+<p> Enter your Account Number: <input type="text" name="accounNum" id="accountNumField"/>
+<input type = "button" onclick="validateInput"  value = "Validate"/>
+</form>
+<div id="isCorrect/>
+</body>
+
+</html>
