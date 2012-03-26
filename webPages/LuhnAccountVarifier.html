@@ -7,14 +7,14 @@
   <script type="text/javascript" src="../src/LuhnValidator.js"></script>
   <script type="text/javascript">
     function validateInput(){
-      var luhnValidator =window.luhnValidator;
+      var luhnValidator =window.LuhnValidator;
       var accountNum = document.getElementById("accountNumField").value;
       var outputDiv = document.getElementById("isCorrect")
       if (luhnValidator.isValidAccountNumber(accountNum)){
-         outputDiv.body = "Valid Account Number";
+         outputDiv.innerHTML = "<p><b>Valid Account Number</b></p>";
       }
       else{
-         outputDiv.body = "inValid Account Number";
+         outputDiv.innerHTML = "<p><b>Invalid Account Number</b></p>";
       }
       
     }
@@ -27,9 +27,9 @@
 <body>
 <form>
 <p> Enter your Account Number: <input type="text" name="accounNum" id="accountNumField"/>
-<input type = "button" onclick="validateInput"  value = "Validate"/>
+<input type = "button" onClick="validateInput();"  value = "Validate"/>
 </form>
-<div id="isCorrect/>
+<div id="isCorrect"/>
 </body>
 
 </html>

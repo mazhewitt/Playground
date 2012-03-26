@@ -11,6 +11,11 @@ describe("LuhnValidator", function() {
          expect(luhnValidator.isValidAccountNumber("499 273 987 16")).toBeTruthy();
      });
    
+        it("can mark an empty or null account number as invalid", function() {
+         var luhnValidator = window.LuhnValidator;
+         expect(luhnValidator.isValidAccountNumber("")).toBeFalsy();
+         expect(luhnValidator.isValidAccountNumber(null)).toBeFalsy();
+     });
    
     describe ("LuhnValidator.helperFunctions", function(){
        
@@ -21,7 +26,7 @@ describe("LuhnValidator", function() {
            expect(listofEveryOtherNumber).toEqual("497976"); 
        });
 
-       it ("can make a string list of ever other number starting at 1", function(){
+       it ("can make a string list of every other number starting at 1", function(){
            var helperFunctions = window.LuhnValidator.helperFunctions;
            var listofEveryOtherNumber = helperFunctions.everyOtherCharacter("49927398716", 1);
            expect(listofEveryOtherNumber).toEqual("92381"); 

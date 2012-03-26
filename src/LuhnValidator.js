@@ -3,12 +3,14 @@ window.LuhnValidator =  {
     
     isValidAccountNumber : function (inputAccountNum){
       
+      //Check to make sure the inputAccountNum isn't empty or null
+      if (inputAccountNum === null || inputAccountNum.length === 0)
+        return false;
+      
       // first remove the spaces
       var accountNum =  this.helperFunctions.removeSpaces(inputAccountNum);
       
-      /* @todo validate that the rest are just numbers */
-
-      // Normally in the Luhn algorythm we double every number fomr the right.  
+      // Normally in the Luhn algorythm we double every number from the right.  
       // this is the same as doubling every other number from the left, but start
       // at 0 for even lengths and 1 for odd lengths
       var numbersToDouble;
@@ -23,7 +25,7 @@ window.LuhnValidator =  {
       }
       // double every number from the right 
       var doubledNumbers = this.helperFunctions.doubleEveryNumber(numbersToDouble);
-      // Add up all the digets
+      // Add up all the digits
       var summedUpNumbers = this.helperFunctions.sumEachNumber(doubledNumbers + numbersToAdd);
       // varify that the last number is a 0
       if ((summedUpNumbers % 10) === 0)
