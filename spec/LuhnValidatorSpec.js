@@ -11,11 +11,17 @@ describe("LuhnValidator", function() {
          expect(luhnValidator.isValidAccountNumber("499 273 987 16")).toBeTruthy();
      });
    
-        it("can mark an empty or null account number as invalid", function() {
+     it("can mark an empty or null account number as invalid", function() {
          var luhnValidator = window.LuhnValidator;
          expect(luhnValidator.isValidAccountNumber("")).toBeFalsy();
          expect(luhnValidator.isValidAccountNumber(null)).toBeFalsy();
      });
+     
+     it("can mark an INVALID account number as invalid", function() {
+         var luhnValidator = window.LuhnValidator;
+         expect(luhnValidator.isValidAccountNumber("8437422434234")).toBeFalsy();
+     });
+     
    
     describe ("LuhnValidator.helperFunctions", function(){
        
